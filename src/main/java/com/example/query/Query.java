@@ -1,5 +1,6 @@
 package com.example.query;
 
+import com.example.request.SampleRequest;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Component;
@@ -26,5 +27,11 @@ public class Query implements GraphQLQueryResolver {
 	public String fullName(@Argument String firstName,@Argument String lastName){
 		return firstName+" "+lastName;
 	}
+
+	//JSON Inputs For GraphQL Query
+	@QueryMapping
+	public String fullName1(@Argument SampleRequest sampleRequest){
+		return sampleRequest.getFirstName()+ " "+sampleRequest.getLastName();
+ 	}
 
 }
