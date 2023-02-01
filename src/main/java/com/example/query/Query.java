@@ -1,6 +1,9 @@
 package com.example.query;
 
 import com.example.request.SampleRequest;
+import com.example.response.StudentResponse;
+import com.example.service.StudentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Component;
@@ -34,4 +37,11 @@ public class Query implements GraphQLQueryResolver {
 		return sampleRequest.getFirstName()+ " "+sampleRequest.getLastName();
  	}
 
+	 @Autowired
+	 public StudentService studentService;
+
+	 @QueryMapping
+	public StudentResponse student(@Argument long id){
+		return new StudentResponse(studentService.getStudentById(id));
+	 }
 }

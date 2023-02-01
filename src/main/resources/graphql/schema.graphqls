@@ -3,10 +3,18 @@ type Query{
     secondQuery : String
     fullName(firstName : String,lastName : String) : String
     fullName1(sampleRequest : SampleRequest): String
+    student(id : Float) : StudentResponse
 }
 
 input SampleRequest {
     firstName: String!
     lastName: String
     }
-
+type StudentResponse{
+    id : Float
+    firstName : String
+    lastName : String
+    email : String
+    street : String
+    city : String
+}
