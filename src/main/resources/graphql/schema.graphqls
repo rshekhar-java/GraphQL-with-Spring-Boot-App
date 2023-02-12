@@ -1,27 +1,30 @@
+
 type Query{
     firstQuery : String
     secondQuery : String
     fullName(firstName : String,lastName : String) : String
     fullName1(sampleRequest : SampleRequest): String
-    student(id : Float) : StudentResponse
+    student(id : Int) : StudentResponse
 }
+
 
 input SampleRequest {
     firstName: String!
     lastName: String
     }
 type StudentResponse{
-    id : Float
+    id : Int
     firstName : String
     lastName : String
     email : String
     street : String
     city : String
     learningSubjects : [SubjectResponse]
+    fullName2 : String
 }
 
 type SubjectResponse{
-    id : Float
+    id : Int
     subjectName : String
     marksObtained : Float
 }

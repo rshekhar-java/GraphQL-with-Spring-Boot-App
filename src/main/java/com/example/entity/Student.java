@@ -22,7 +22,7 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
-    private Long id;
+    private int id;
 
     @Column(name = "first_name")
     private String firstName;
@@ -37,6 +37,6 @@ public class Student {
     @JoinColumn(name = "address_id")
     private Address address;
 
-    @OneToMany(mappedBy = "student", fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "student",fetch=FetchType.EAGER)
     private List<Subject> learningSubjects;
 }

@@ -3,12 +3,15 @@ package com.example.query;
 import com.example.request.SampleRequest;
 import com.example.response.StudentResponse;
 import com.example.service.StudentService;
+import graphql.kickstart.tools.GraphQLQueryResolver;
+import graphql.kickstart.tools.GraphQLResolver;
+import jakarta.persistence.Id;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Component;
 
-import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+
 import org.springframework.stereotype.Controller;
 
 @Component
@@ -41,7 +44,7 @@ public class Query implements GraphQLQueryResolver {
 	 public StudentService studentService;
 
 	 @QueryMapping
-	public StudentResponse student(@Argument long id){
+	 public StudentResponse getStudent( @Argument int id){
 		return new StudentResponse(studentService.getStudentById(id));
 	 }
 }

@@ -10,7 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SubjectResponse {
-    private Long id;
+    private int id;
 
     private String subjectName;
 
