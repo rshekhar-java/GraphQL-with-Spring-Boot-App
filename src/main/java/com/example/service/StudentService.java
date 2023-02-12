@@ -12,10 +12,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class StudentService {
 
-    @Autowired
+//    @Autowired
     StudentRepository studentRepository;
 
-    public Student getStudentById (@Argument int id) {
+    public Student getStudentById (int id) {
         return studentRepository.findById(id).get();
     }
 
